@@ -1,5 +1,6 @@
 // This code listens for the user's confirmation to update the app.
-
+/* eslint-disable */
+import { precacheAndRoute } from 'workbox-precaching/precacheAndRoute';
 self.addEventListener('message', (event) => {
     if (event.data && event.data.type === 'SKIP_WAITING') {
         self.skipWaiting();
@@ -24,5 +25,7 @@ workbox.core.clientsClaim();
 
 // The precaching code provided by Workbox.
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+precacheAndRoute(self.__WB_MANIFEST);
+// workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+
   
